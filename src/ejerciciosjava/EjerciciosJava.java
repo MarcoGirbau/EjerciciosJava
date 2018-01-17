@@ -33,12 +33,15 @@ public class EjerciciosJava
     
     public boolean palindromo (String pali)
     {
-        for(int i=0; i<pali.length();i++)
+        int numero = pali.length()/2;
+        String numerosida = "";
+        numerosida = String.valueOf(numero);
+        for(int i=0; i<pali.length()/2;i++)
         {
-            for(int j=1; j<pali.length();j++)
-            {
-                String a = pali.substring(i,j);
-                String b = pali.substring(pali.length()-1,pali.length());
+            for(int j=1; j<pali.length()/2;j++)
+            {   
+                String a = numerosida.substring(i,j);
+                String b = pali.substring(pali.length()-j,pali.length()-i);
                 if(a.equals(b))
                 {
                     return true;
@@ -70,12 +73,14 @@ public class EjerciciosJava
         EjerciciosJava ejercicio1 = new EjerciciosJava();
         int[] lista = {50,31,27,2,5,99};
         int[] lista2 = {150,31,27,2,5,99};
-        String palin = "ACASO HUBO BUHOS ACA";
-        //ejercicio1.ejemplosString();
-        System.out.println(Arrays.toString(ejercicio1.maximo(lista)));
-        System.out.println(Arrays.toString(ejercicio1.maximo(lista2)));
-        System.out.println(Arrays.toString(ejercicio1.maximo(lista2)));
+        String palin = "ACASOHUBOBUHOSACA"; //20 chars
+        String palin2 ="ANNA";
+//        ejercicio1.ejemplosString();
+//        System.out.println(Arrays.toString(ejercicio1.maximo(lista)));
+//        System.out.println(Arrays.toString(ejercicio1.maximo(lista2)));
+//        System.out.println(Arrays.toString(ejercicio1.maximo(lista2)));
         System.out.println(ejercicio1.palindromo(palin));
+        System.out.println(ejercicio1.palindromo(palin2));
     }
     
 }
