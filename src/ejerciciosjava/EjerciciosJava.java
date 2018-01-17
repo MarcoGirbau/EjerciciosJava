@@ -33,23 +33,21 @@ public class EjerciciosJava
     
     public boolean palindromo (String pali)
     {
-        int numero = pali.length()/2;
-        String numerosida = "";
-        numerosida = String.valueOf(numero);
-        for(int i=0; i<pali.length()/2;i++)
+        String a = "";
+        for(int i=0; i<pali.length();i++)
         {
-            for(int j=1; j<pali.length()/2;j++)
-            {   
-                String a = numerosida.substring(i,j);
-                String b = pali.substring(pali.length()-j,pali.length()-i);
-                if(a.equals(b))
-                {
-                    return true;
-                }
-                return false;
+            if(pali.charAt(i) != ' ')
+            {
+                a = a + pali.charAt(i);
             }
         }
-        return false;
+        String b = "";
+        int sida = a.length();
+        for(int i=0; i<sida ;i++)
+        {
+            b = b + pali.charAt(sida-i-1);
+        }
+        return pali.equals(b);
     }
     
     /**
@@ -73,7 +71,7 @@ public class EjerciciosJava
         EjerciciosJava ejercicio1 = new EjerciciosJava();
         int[] lista = {50,31,27,2,5,99};
         int[] lista2 = {150,31,27,2,5,99};
-        String palin = "ACASOHUBOBUHOSACA"; //20 chars
+        String palin = "ACASO HUBO BUHOS ACA"; //20 chars
         String palin2 ="ANNA";
 //        ejercicio1.ejemplosString();
 //        System.out.println(Arrays.toString(ejercicio1.maximo(lista)));
