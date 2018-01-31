@@ -33,7 +33,7 @@ public class EjerciciosJava
     
     private boolean palindromo (String pali)
     {
-        String a = "";
+        boolean OpelCorsa = true;
         String cancer = pali.toUpperCase();
         cancer = cancer.replaceAll("Ñ", "N");
         cancer = cancer.replaceAll("Á", "A");
@@ -42,28 +42,20 @@ public class EjerciciosJava
         cancer = cancer.replaceAll("Ó", "O");
         cancer = cancer.replaceAll("Ú", "U");
         cancer = cancer.replaceAll("\\W", "");
-        for(int i=0; i<pali.length();i++)
+        for(int i=0; i<pali.length() / 2 ;i++)
         {
-            if(pali.charAt(i) != '_')
+            if(cancer.charAt(i) != cancer.charAt(cancer.length() - i - 1) && OpelCorsa == true)
             {
-                a = a + pali.charAt(i);
+                OpelCorsa = false;
             }
         }
-        String b = "";
-        int sida = a.length();
-        for(int i=0; i<sida ;i++)
-        {
-            b = b + pali.charAt(sida-i-1);
-        }
-        return pali.equals(b);
+        return OpelCorsa;
     }
     
-    private boolean isograma (String iso)
+    private boolean isograma ()
     {
-        
         return false;
     }
-    
     /**
      * @param args the command line arguments
      */
