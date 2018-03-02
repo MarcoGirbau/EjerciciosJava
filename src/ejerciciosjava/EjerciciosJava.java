@@ -52,9 +52,25 @@ public class EjerciciosJava
         return OpelCorsa;
     }
     
-    private boolean isograma ()
+    private boolean isograma (String cancer)
     {
-        return false;
+        boolean sida = true;
+        for(int i = 0; i < cancer.length();i++)
+        {
+            int repetida = 0;
+            for(int j = 0; j < cancer.length();i++)
+            {
+                if(cancer.charAt(i) == cancer.charAt(j))
+                {
+                    repetida++;
+                }
+                if(repetida > 1)
+                {
+                    sida = false;
+                }
+            }
+        }
+        return sida;
     }
     /**
      * @param args the command line arguments
@@ -79,12 +95,16 @@ public class EjerciciosJava
         int[] lista2 = {150,31,27,2,5,99};
         String palin = "ACASO HUBO BUHOS ACA"; //20 chars
         String palin2 ="ANA";
+        String iso = "Cancer";
+        String iso2 = "ANNA";
 //        ejercicio1.ejemplosString();
 //        System.out.println(Arrays.toString(ejercicio1.maximo(lista)));
 //        System.out.println(Arrays.toString(ejercicio1.maximo(lista2)));
 //        System.out.println(Arrays.toString(ejercicio1.maximo(lista2)));
-        System.out.println(ejercicio1.palindromo(palin));
-        System.out.println(ejercicio1.palindromo(palin2));
+//        System.out.println(ejercicio1.palindromo(palin));
+//        System.out.println(ejercicio1.palindromo(palin2));
+        System.out.println(ejercicio1.isograma(iso));
+        System.out.println(ejercicio1.isograma(iso2));
     }
     
 }
