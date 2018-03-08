@@ -54,28 +54,73 @@ public class EjerciciosJava
     
     private boolean isograma (String cancer)
     {
-        boolean sida = true;
-        for(int i = 0; i < cancer.length();i++)
-        {
-            int repetida = 0;
-            for(int j = 0; j < cancer.length();i++)
-            {
-                if(cancer.charAt(i) == cancer.charAt(j))
-                {
-                    repetida++;
-                }
-                if(repetida > 1)
-                {
-                    sida = false;
-                }
-            }
-        }
-        return sida;
+        boolean a = true;						
+	int lr;							
+	for (int i = 0; i < cancer.length(); i++) 
+        {				
+	    lr = 0;						
+	    for (int j = 0; j < cancer.length(); j++) 
+            {				
+		if (cancer.charAt(i) == cancer.charAt(j)) 
+                {			
+		    lr++;
+		}
+	    }
+	    if (lr > 1) 
+            {						
+		a = false;
+	    }
+	}
+	return a;
     }
     /**
      * @param args the command line arguments
      */
     
+    public void calendario(int patata) 
+    {
+	int dia = 0;							
+	String[] calendario = new String[31];					
+	for (int i = 0; i < patata; i++) 
+        {					
+	    if (dia < 7) 
+            {
+		System.out.print("XX ");
+		dia++;
+	    } else 
+            {								
+		System.out.println();
+		System.out.print("XX ");
+		dia = 1;
+	    }
+	}
+	for (int i = 0; i < calendario.length; i++) 
+        {				
+	    if (dia < 7) 
+            {						
+		if (i < 9) 
+                {
+		    System.out.print("0");
+		}
+		System.out.print((i + 1) + " ");
+		dia++;
+	    } else 
+            {
+		System.out.println();
+		if (i < 9) 
+                {
+		    System.out.print("0");
+		}
+		System.out.print((i + 1) + " ");
+		dia = 1;
+	    }
+	}
+	for (int i = dia; i < 7; i++) 
+        {					
+	    System.out.print("XX ");
+	}
+	System.out.println();
+    }
    public void ejemplosString()
     {
 //        String cadena1 = "Acaso hubo buhos aca";
@@ -93,18 +138,15 @@ public class EjerciciosJava
         EjerciciosJava ejercicio1 = new EjerciciosJava();
         int[] lista = {50,31,27,2,5,99};
         int[] lista2 = {150,31,27,2,5,99};
-        String palin = "ACASO HUBO BUHOS ACA"; //20 chars
-        String palin2 ="ANA";
-        String iso = "Cancer";
-        String iso2 = "ANNA";
 //        ejercicio1.ejemplosString();
 //        System.out.println(Arrays.toString(ejercicio1.maximo(lista)));
 //        System.out.println(Arrays.toString(ejercicio1.maximo(lista2)));
 //        System.out.println(Arrays.toString(ejercicio1.maximo(lista2)));
 //        System.out.println(ejercicio1.palindromo(palin));
 //        System.out.println(ejercicio1.palindromo(palin2));
-        System.out.println(ejercicio1.isograma(iso));
-        System.out.println(ejercicio1.isograma(iso2));
+        System.out.println(ejercicio1.isograma("abc"));
+        System.out.println(ejercicio1.isograma("murcielago"));
+        ejercicio1.calendario(4);
     }
     
 }
