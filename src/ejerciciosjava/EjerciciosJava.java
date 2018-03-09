@@ -13,7 +13,7 @@ import java.util.Arrays;
  */
 public class EjerciciosJava 
 {
-    public int[] maximo(int [] listaNumeros)
+    public int[] maximo(int [] listaNumeros)//Tambien se puede usar el metodo Math.max para calcular el maximo
     {
         int [] numerosMaximos = {0,0};
         for(int i=0; i<listaNumeros.length;i++)
@@ -34,6 +34,7 @@ public class EjerciciosJava
     private boolean palindromo (String pali)
     {
         boolean OpelCorsa = true;
+        //Los replaceall sirven para arreglar en caso de encontar tildes o Ñ
         String cancer = pali.toUpperCase();
         cancer = cancer.replaceAll("Ñ", "N");
         cancer = cancer.replaceAll("Á", "A");
@@ -56,9 +57,9 @@ public class EjerciciosJava
     {
         boolean a = true;						
 	int lr;							
-	for (int i = 0; i < cancer.length(); i++) 
-        {				
-	    lr = 0;						
+	for (int i = 0; i < cancer.length(); i++) //Con un doble bucle for comparamos los chars y vemos si son el mismo
+        {                                          //Si son los mismos se suma en un contador 
+	    lr = 0;                                //Si se suma en contador hacemos un if para que el boolean se ponga en false
 	    for (int j = 0; j < cancer.length(); j++) 
             {				
 		if (cancer.charAt(i) == cancer.charAt(j)) 
@@ -77,7 +78,7 @@ public class EjerciciosJava
      * @param args the command line arguments
      */
     //Declaramos un contador 
-    public void calendario(int patata) 
+    public void calendario(int patata) //Arreglado error que al dibujar las lineas de las xx no salte linea
     {
 	int dia = 0;							
 	String[] calendario = new String[31];					
@@ -86,12 +87,12 @@ public class EjerciciosJava
 	    if (dia < 7) 
             {
 		System.out.print("XX ");
-		dia++;
+		dia++; //Aqui el error mencionado, ya que no sumaba el contador no funcionaba
 	    } 
             if(dia > 7) 
             {								
 		System.out.println();
-		System.out.print("XX ");
+		System.out.print("XX ");//Se pone un espacio a la derecha para que no este junto
 		dia = 1;
 	    }
 	}
@@ -117,29 +118,35 @@ public class EjerciciosJava
 		dia = 1;
 	    }
 	}
-	for (int i = dia; i < 7; i++) 
+	for (int i = dia; i < 7; i++) //Para que escriba las XX del final si es que fueran necesarias
         {					
 	    System.out.print("XX ");
 	}
-	System.out.println();
+	System.out.println(); //No sirve para este codigo pero esta para que en otros codigos esten en otra linea
     }
     
      public boolean escaleraDePalabras(char[][] escalera) 
      {
-	boolean cancer = true;													
+	boolean cancer = true;
+        int sida;
 	for (int i = 0; i < escalera.length - 1; i++) 
-        {								
+        {	
+            sida = 0;//Se establece aqui a 0 para que cada vez que entre al for se ponga a 0 otra vez
 	    if (escalera[i + 1].length == escalera[i].length) 
             {		
 		for (int j = 0; j < escalera[i].length; j++) 
                 {
-                    
+                    if(escalera[i][j] != escalera[i + 1][j])
+                    {
+                        sida++;
+                    }
+                    if(sida > 1)//El fallo que tenia era (aparte de ser subnormal)era que tenia que si sida era mayor que 0 de
+                                //false, sin embargo como debe ser 1 ya que tiene que ser una letra diferente
+                    {
+                        cancer = false;
+                    }
 		}
 	    } 
-            else 
-            {
-		System.out.println("Nuestras chachis palabritas poseen una longitud diferente");
-	    }
 	}
 	return cancer;
     }
@@ -169,7 +176,7 @@ public class EjerciciosJava
 //        System.out.println(ejercicio1.palindromo(palin2));
         System.out.println(ejercicio1.isograma("abc"));
         System.out.println(ejercicio1.isograma("murcielago"));
-        ejercicio1.calendario(4);
+        ejercicio1.calendario(3);
         char[][] listaPalabras = {
 	    {'P', 'A', 'T', 'A'},
 	    {'P', 'A', 'T', 'O'},
