@@ -76,7 +76,7 @@ public class EjerciciosJava
     /**
      * @param args the command line arguments
      */
-    
+    //Declaramos un contador 
     public void calendario(int patata) 
     {
 	int dia = 0;							
@@ -87,7 +87,8 @@ public class EjerciciosJava
             {
 		System.out.print("XX ");
 		dia++;
-	    } else 
+	    } 
+            if(dia > 7) 
             {								
 		System.out.println();
 		System.out.print("XX ");
@@ -104,7 +105,8 @@ public class EjerciciosJava
 		}
 		System.out.print((i + 1) + " ");
 		dia++;
-	    } else 
+	    } 
+            else
             {
 		System.out.println();
 		if (i < 9) 
@@ -121,6 +123,27 @@ public class EjerciciosJava
 	}
 	System.out.println();
     }
+    
+     public boolean escaleraDePalabras(char[][] escalera) 
+     {
+	boolean cancer = true;													
+	for (int i = 0; i < escalera.length - 1; i++) 
+        {								
+	    if (escalera[i + 1].length == escalera[i].length) 
+            {		
+		for (int j = 0; j < escalera[i].length; j++) 
+                {
+                    
+		}
+	    } 
+            else 
+            {
+		System.out.println("Nuestras chachis palabritas poseen una longitud diferente");
+	    }
+	}
+	return cancer;
+    }
+     
    public void ejemplosString()
     {
 //        String cadena1 = "Acaso hubo buhos aca";
@@ -147,6 +170,15 @@ public class EjerciciosJava
         System.out.println(ejercicio1.isograma("abc"));
         System.out.println(ejercicio1.isograma("murcielago"));
         ejercicio1.calendario(4);
+        char[][] listaPalabras = {
+	    {'P', 'A', 'T', 'A'},
+	    {'P', 'A', 'T', 'O'},
+	    {'R', 'A', 'T', 'O'},
+	    {'R', 'A', 'M', 'O'},
+	    {'G', 'A', 'M', 'O'},
+	    {'G', 'A', 'T', 'O'},
+	    {'M', 'A', 'T', 'O'},};
+        System.out.println(ejercicio1.escaleraDePalabras(listaPalabras));
     }
     
 }
